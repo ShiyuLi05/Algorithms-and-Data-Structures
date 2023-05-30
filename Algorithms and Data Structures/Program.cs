@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.Metrics;
 using System;
 using System.Runtime.InteropServices;
+using System.Numerics;
 
 int n = 0;
 while (n <= 0)
@@ -17,9 +18,9 @@ for (int i = 0; i < n; i++)
 
     string newWords = Console.ReadLine();
 
-    if (newWords.Length > 0)
+    if (newWords.Length > 0 && !newWords.Contains(' '))
     {
-        words[i] = newWords;
+        words[i] = newWords.ToLower();
     }
     else
     {
@@ -28,11 +29,13 @@ for (int i = 0; i < n; i++)
     }
 }
 
-Console.WriteLine("Please enter a character to count");
+char charToCount = ' ';
 
-ConsoleKeyInfo keyInfo = Console.ReadKey();
-
-char charToCount = keyInfo.KeyChar;
+while (!Char.IsLetter(charToCount))
+{
+    Console.WriteLine("Please enter a character to count");
+    charToCount = Char.ToLower(Console.ReadKey().KeyChar);
+}
 
 //get a count of how many times this character appears in all of words
 
