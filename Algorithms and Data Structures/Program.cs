@@ -143,3 +143,4 @@ Console.WriteLine(output4);
  *    Because StringBuilder is mutable it is not thread safe. 
  * 2. when the number of changes that our code will make to a string is small.StringBuilder might offer negligible.
  * 3. when we prefer a fixed number of concatenation operations.
+ */
