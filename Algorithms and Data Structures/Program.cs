@@ -34,6 +34,8 @@ Console.WriteLine(feedBack);
 
 
 
+
+
 // Program 2. Unique words:
 Console.WriteLine();
 Console.WriteLine("Program 2: ");
@@ -72,6 +74,8 @@ Console.WriteLine();
 
 
 
+
+
 // Program 3. Reverse string:
 Console.WriteLine();
 Console.WriteLine("Program 3: ");
@@ -87,6 +91,9 @@ for (int i = chars.Length - 1; i > -1; i--)
 string output3 = reversedString.ToString();
 
 Console.WriteLine(output3);
+
+
+
 
 
 //Program 4. longest word:
@@ -116,3 +123,23 @@ Console.WriteLine(output4);
 
 
 
+
+
+// About StringBuilder class:
+
+/*
+ * String is an immutable type. Each operation that appears to modify a String object is creating a new string.
+ * But StringBuilder is a muable string class, which means once an instance of the class has been created, it 
+ *  can be modified by appending, removing, replacing or inserting characters.
+ *  
+ * Advantages of StringBuilder:
+ *  1. we could use StringBuilder if our string's length is unknown or not exactly sure.
+ *      (eg: using a loop to concatenate a random number of strings that contains user input)
+ *  2. when we change a significant number to a string. 
+ *  3. sometime, StringBuilder do reduce running time
+ * 
+ * Disadvantages of StringBuilder:
+ * 1. Strings are made immutable in order to be manipulated in a thread safe way. 
+ *    Because StringBuilder is mutable it is not thread safe. 
+ * 2. when the number of changes that our code will make to a string is small.StringBuilder might offer negligible.
+ * 3. when we prefer a fixed number of concatenation operations.
