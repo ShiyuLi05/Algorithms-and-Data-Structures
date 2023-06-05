@@ -25,6 +25,9 @@ Console.WriteLine();
 
 int[] ints1 = new int[] { 1, 2, 3, 4, 5 };
 int[] ints2 = new int[] { 2, 5, 7, 9, 13 };
+
+/*
+// The first method:
 int output2Length = ints1.Length + ints2.Length;
 
 int[] output2 = new int[output2Length];
@@ -65,24 +68,36 @@ foreach (int number in output2)
 }
 
 Console.WriteLine();
+*/
 
-
+//The second method:
+List<int> mergedNum = new List<int>();
+mergedNum.AddRange(ints1);
+mergedNum.AddRange(ints2);
+mergedNum.Sort((x, y) => x.CompareTo(y));   // use CompareTo method to sort the list; ascending order:x.CompareTo(y);Descending: -x.CompareTo(y)
+foreach (int number in mergedNum)
+{
+    Console.Write($"{number}, ");
+}
+Console.WriteLine();
 
 //Program 3: reverse the digits
-int input3 = -3415;
+int input3 = 3415;
 
-/*
+
 // The first method:
-string myNum = input3.ToString();
+char[] myNum = input3.ToString().ToCharArray();
 StringBuilder output3 = new StringBuilder("", myNum.Length);
-for (int i = myNum.Length - 1; i >= 0; i--)
+for (int i = 0; i < myNum.Length; i++)
 {
     output3.Append(myNum[i]);
 }
 Console.WriteLine(output3);
 //Running time: O(n)
-*/   // But this way, I change the data type which is not really good
+   // But this way, I change the data type which is not really good
 
+
+/*
 //The second method:
 int temp = input3;
 int output3 = 0;
@@ -93,3 +108,4 @@ while (temp != 0)
 }
 Console.WriteLine(output3);
 //Running time: O(n)
+*/
