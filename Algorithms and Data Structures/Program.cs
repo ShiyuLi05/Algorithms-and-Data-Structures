@@ -87,14 +87,11 @@ Console.WriteLine();
 
 
 //Program 3: OrderByLooping:
-//
+//On^2
 
 List<int> OrderByLooping = new List<int> { 6, -2, 5, 3 };
-int max = OrderByLooping[0];
-int temp = 0;
-
+/*
 bool sorted = false;
-
 
 if (OrderByLooping.Count > 0)
 {
@@ -113,9 +110,25 @@ if (OrderByLooping.Count > 0)
         }
     }
 }
-foreach (int i in OrderByLooping)
+Console.WriteLine(String.Join(", ",OrderByLooping));
+*/
+
+
+//Bubble sort:
+int temp = 0;
+for (int i = 0; i < OrderByLooping.Count - 1; i++)  
 {
-    Console.WriteLine(i);
+    for (int j = 0; j < OrderByLooping.Count - 1 - i; j++)  
+    {
+        if (OrderByLooping[j] > OrderByLooping[j + 1])
+        {   
+            temp = OrderByLooping[j];
+            OrderByLooping[j] = OrderByLooping[j + 1];
+            OrderByLooping[j + 1] = temp;
+        }
+    }
 }
+Console.WriteLine(String.Join(", ",OrderByLooping));
+
 
 
