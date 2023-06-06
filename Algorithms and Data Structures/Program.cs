@@ -1,4 +1,16 @@
 ﻿using System;
+using System.Diagnostics;
+
+
+static int getHighestValueInList(int number, int HighestValue)
+{
+    if (number > HighestValue)
+    {
+        HighestValue = number;
+    }
+    return HighestValue;
+}
+
 
 // Program 1: Max number:
 //On^2
@@ -7,8 +19,7 @@ List<List<int>> numbers = new List<List<int>>
 {
     new List<int> { 1, 5, 3 },
     new List<int> { 9, 7, 3, -2 },
-    new List<int> { 2, 1, 2 },
-    new List<int> { -1 }
+    new List<int> { 2, 1, 2 }
 };
 List<int> MaxNumbers = new List<int>();
 int maxNumberInList = numbers[0][0];
@@ -16,15 +27,14 @@ if (numbers.Count > 0)
 {
     foreach(List<int> list in numbers) 
     {
-        maxNumberInList = list[0]; // if there's any negative number, it also can be output
+        maxNumberInList = list[0];
         foreach (int number in list)
         {
-            if (number > maxNumberInList)
+            maxNumberInList = getHighestValueInList (number, maxNumberInList);
+            /*if (number > maxNumberInList)
             {
                 maxNumberInList = number;
-                
-                
-            }       
+            }*/
         }
         MaxNumbers.Add(maxNumberInList);
     }
@@ -48,7 +58,7 @@ List<List<int>> grades = new List<List<int>>
 {
     new List<int> { 85, 92, 67, 94, 94 },
     new List<int> { 50, 60, 57, 95 },
-    new List<int> { 95 }
+    new List<int> { 95, 101 }
 };
 int maxGrade = 100; int minGrade = 0;
 int highestGrade = grades[0][0];
@@ -57,18 +67,18 @@ string output2 = "";
 if (grades.Count > 0)
 {
     foreach (List<int> list in grades)
-    {   
+    {
         gradeIndex++;
         foreach (int grade in list)
         {
             if (minGrade <= grade && grade <= maxGrade)
             {
-                if (grade > highestGrade)
+                highestGrade = getHighestValueInList(grade, highestGrade);
+                /*if (grade >= highestGrade)
                 {
-                    
                     highestGrade = grade;
-                    output2 = $"The highest grade is {highestGrade}. This grade was found in class {gradeIndex}.";
-                }
+                }*/
+                output2 = $"The highest grade is {highestGrade}. This grade was found in class {gradeIndex}.";
             } else
             {
                 output2 = "Incorrect grade. All grades must between 0 - 100";
