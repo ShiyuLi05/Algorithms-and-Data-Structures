@@ -31,10 +31,6 @@ if (numbers.Count > 0)
         foreach (int number in list)
         {
             maxNumberInList = getHighestValueInList (number, maxNumberInList);
-            /*if (number > maxNumberInList)
-            {
-                maxNumberInList = number;
-            }*/
         }
         MaxNumbers.Add(maxNumberInList);
     }
@@ -58,7 +54,7 @@ List<List<int>> grades = new List<List<int>>
 {
     new List<int> { 85, 92, 67, 94, 94 },
     new List<int> { 50, 60, 57, 95 },
-    new List<int> { 95, 101 }
+    new List<int> { 95 }
 };
 int maxGrade = 100; int minGrade = 0;
 int highestGrade = grades[0][0];
@@ -74,10 +70,6 @@ if (grades.Count > 0)
             if (minGrade <= grade && grade <= maxGrade)
             {
                 highestGrade = getHighestValueInList(grade, highestGrade);
-                /*if (grade >= highestGrade)
-                {
-                    highestGrade = grade;
-                }*/
                 output2 = $"The highest grade is {highestGrade}. This grade was found in class {gradeIndex}.";
             } else
             {
