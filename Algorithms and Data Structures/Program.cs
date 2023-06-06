@@ -1,5 +1,7 @@
 ﻿// Program 1: Max number:
 //On^2
+using System;
+
 List<List<int>> numbers = new List<List<int>>
 {
     new List<int> { 1, 5, 3 },
@@ -40,5 +42,42 @@ Console.WriteLine();
 
 //Program 2:  HighestGrade:
 
-List<List<int>> grades = new List<List<int>>();
-List<int> Grades1 = new List<int> { 85, 92, 67, 94, 94 };
+List<List<int>> grades = new List<List<int>>
+{
+    new List<int> { 85, 92, 67, 94, 94 },
+    new List<int> { 50, 60, 57, 95 },
+    new List<int> { 95 }
+};
+int maxGrade = 100; int minGrade = 0;
+int highestGrade = grades[0][0];
+int gradeIndex = 0;
+string output2 = "";
+if (grades.Count > 0)
+{
+    foreach (List<int> list in grades)
+    {   
+        gradeIndex++;
+        foreach (int grade in list)
+        {
+            if (minGrade <= grade && grade <= maxGrade)
+            {
+                if (grade > highestGrade)
+                {
+                    
+                    highestGrade = grade;
+                    output2 = $"The highest grade is {highestGrade}. This grade was found in class {gradeIndex}.";
+                }
+            } else
+            {
+                output2 = "Incorrect grade. All grades must between 0 - 100";
+            }
+        }
+    }
+}
+else
+{
+    output2 = "Please not enter an empty list";
+}
+
+Console.WriteLine(output2);
+Console.WriteLine();
