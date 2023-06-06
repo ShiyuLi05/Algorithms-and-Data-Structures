@@ -1,6 +1,7 @@
-﻿// Program 1: Max number:
+﻿using System;
+
+// Program 1: Max number:
 //On^2
-using System;
 
 List<List<int>> numbers = new List<List<int>>
 {
@@ -41,6 +42,7 @@ Console.WriteLine();
 
 
 //Program 2:  HighestGrade:
+// On^2
 
 List<List<int>> grades = new List<List<int>>
 {
@@ -81,3 +83,39 @@ else
 
 Console.WriteLine(output2);
 Console.WriteLine();
+
+
+
+//Program 3: OrderByLooping:
+//
+
+List<int> OrderByLooping = new List<int> { 6, -2, 5, 3 };
+int max = OrderByLooping[0];
+int temp = 0;
+
+bool sorted = false;
+
+
+if (OrderByLooping.Count > 0)
+{
+    while (!sorted)
+    {
+        sorted = true;
+        for (int i = 0; i < OrderByLooping.Count - 1; i++)
+        {
+            if (OrderByLooping[i] > OrderByLooping[i + 1])
+            {
+                sorted = false;
+                int stored = OrderByLooping[i]; 
+                OrderByLooping[i] = OrderByLooping[i + 1];
+                OrderByLooping[i + 1] = stored;
+            }
+        }
+    }
+}
+foreach (int i in OrderByLooping)
+{
+    Console.WriteLine(i);
+}
+
+
